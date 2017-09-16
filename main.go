@@ -7,22 +7,22 @@ import (
 )
 
 func checkerr(err error) {
-  if err != nil{
-    panic(err)
-  }
+	if err != nil {
+		panic(err)
+	}
 }
 
 func main() {
 	bow := surf.NewBrowser()
 	err := bow.Open("http://google.com")
-  checkerr(err)
+	checkerr(err)
 
 	fmt.Println(bow.Title())
-  // https://www.sitepoint.com/comprehensive-jquery-selectors/ => Look for Attribute Selectors.
+	// https://www.sitepoint.com/comprehensive-jquery-selectors/ => Look for Attribute Selectors.
 	search, err := bow.Form("[name='f']")
-  checkerr(err)
-  search.Input("q", "Cheese")
-  err = search.Submit()
-  checkerr(err)
-  fmt.Println(bow.Body())
+	checkerr(err)
+	search.Input("q", "Cheese")
+	err = search.Submit()
+	checkerr(err)
+	fmt.Println(bow.Body())
 }
